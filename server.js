@@ -1,11 +1,16 @@
 const express = require("express");
 const app  = express();
+const db   = require("./models");
 const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 
+const deviceRoutes = require("./routes/device");
+app.use("/api/v1/devices",deviceRoutes);
 
+const categoryRoutes = require("./routes/category");
+app.use("/api/v1/categories",categoryRoutes);
 
 db.sequelize.sync({ force: true }).then(() => {
 
