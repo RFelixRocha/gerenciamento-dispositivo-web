@@ -25,14 +25,14 @@ export class CreateCategoryComponent implements OnInit {
   addCategory(): void{
     this.category.name = this.category.name.trim();
 
-    if (!this.category.name)
-      return;
-
     this.categoryService.addCategory(this.category).subscribe(newCategory => {
       this.alertService.success('Sucesso!',`Categoria ${newCategory.name} cadastrada com sucesso.`)
       this.clearForm()
       this.router.navigate(['/categories']);
-    },error => console.log(error.error))
+    },(httpError) => {
+      console.log(httpError);
+      this.alertService.error('Error!',`${httpError.error.message}`);
+    })
   }
 
   clearForm(): void{

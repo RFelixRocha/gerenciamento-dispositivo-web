@@ -37,14 +37,14 @@ export class CreateDeviceComponent implements OnInit {
     this.device.partNumber = this.device.partNumber;
     this.device.category = this.device.category;
 
-    if (!this.device.color || !this.device.partNumber || !this.device.category)
-      return;
-
     this.deviceService.addDevice(this.device).subscribe(newDevice => {
       this.alertService.success('Sucesso!',`Dispositivo ${newDevice.partNumber} cadastrado com sucesso.`)
       this.clearForm()
       this.router.navigate(['/devices']);
-    },error => console.log(error.error))
+    },(httpError) => {
+      console.log(httpError);
+      this.alertService.error('Error!',`${httpError.error.message}`);
+    })
 
   }
 
