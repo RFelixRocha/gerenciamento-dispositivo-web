@@ -10,12 +10,12 @@ exports.create = (req, res) => {
       });
       return;
     }
-  
+
     //Objeto com o nome da categoria
     const category = {
       name: req.body.name
     };
-  
+
     //Cadastro da categoria
     Category.create(category)
       .then(data => {
@@ -28,7 +28,7 @@ exports.create = (req, res) => {
         });
       });
   };
-  
+
   //Lista das categorias.
   exports.findAll = (req, res) => {
     Category.findAll({
@@ -44,13 +44,16 @@ exports.create = (req, res) => {
         });
       });
   };
-  
+
   //Buscando uma categoria
   exports.findOne = (req, res) => {
 
     const id = req.params.id;
-  
-    Category.findByPk(id)
+
+    Category.findOne({
+        where:{id:id},
+        include:[db.device]
+    })
       .then(data => {
 
           if(data == null)
@@ -69,13 +72,13 @@ exports.create = (req, res) => {
       });
 
   };
-  
+
 
   // Deleta uma categoria
   exports.delete = (req, res) => {
 
     const id = req.params.id;
-  
+
     Category.destroy({
       where: { id: id }
     })
