@@ -13,7 +13,8 @@ export class CreateCategoryComponent implements OnInit {
 
   category: Category = {
     id: 0,
-    name: ''
+    name: '',
+    devices: []
   }
 
   constructor(private categoryService: CategoryService, private alertService: AlertService,private router: Router) {
@@ -44,7 +45,8 @@ export class CreateCategoryComponent implements OnInit {
   clearForm(): void{
     this.category = {
       id: 0,
-      name: ''
+      name: '',
+      devices: []
     }
   }
 

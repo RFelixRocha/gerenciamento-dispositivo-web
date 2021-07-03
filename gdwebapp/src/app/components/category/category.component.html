@@ -15,13 +15,16 @@
         <thead>
         <tr>
           <th scope="col">Nome</th>
-          <th scope="col" class="text-center" style="width: 10%">Ações</th>
+          <th scope="col" class="text-center" style="width: 24%">Ações</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let category of categories">
           <td>{{ category.name }}</td>
-          <td class="text-center"><a class="btn btn-danger" (click)="delete(category)" role="button"><i class="fa fa-trash"></i>&nbsp;Deletar</a></td>
+          <td class="text-center">
+            <a class="btn btn-info" style="margin-right: 5px;" routerLink="/categories/details/{{category.id}}" role="button"><i class="fa fa-eye"></i>&nbsp;Detalhes</a>
+            <a class="btn btn-danger" (click)="delete(category)" role="button"><i class="fa fa-trash"></i>&nbsp;Deletar</a>
+          </td>
         </tr>
         </tbody>
       </table>

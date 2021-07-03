@@ -41,6 +41,18 @@ export class CategoryService {
   }
 
   /**
+   * Busca uma categoria
+   * **/
+  searchCategory(id: number): Observable<Category> {
+    const url = `${this.categoryUrl}/search/${id}`;
+    return this.http.get<Category>(url)
+      .pipe(
+        tap(() => this.log(`fetched category id ${id}`)),
+        catchError(this.handleError<Category>('searchCategory'))
+      );
+  }
+
+  /**
    * Deleta uma categoria
    * **/
   deleteCategory(id: number): Observable<Category> {
