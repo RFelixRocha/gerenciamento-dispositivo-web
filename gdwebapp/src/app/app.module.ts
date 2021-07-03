@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from './routes/app-routing.module';
+import { AppComponent } from './components/layouts/app.component';
 import { DeviceComponent } from './components/device/device.component';
 import { CategoryComponent } from './components/category/category.component';
 
