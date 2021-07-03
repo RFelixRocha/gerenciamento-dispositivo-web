@@ -3,11 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DeviceComponent} from "../components/device/device.component";
 import { CategoryComponent } from "../components/category/category.component";
+import {CreateCategoryComponent} from "../components/create-category/create-category.component";
+import {CreateDeviceComponent} from "../components/create-device/create-device.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/devices', pathMatch: 'full' },
   { path: 'devices', component: DeviceComponent},
-  { path: 'categories', component: CategoryComponent }
+  { path: 'devices/add', component: CreateDeviceComponent},
+  { path: 'categories', component: CategoryComponent },
+  { path: 'categories/add', component: CreateCategoryComponent}
 ];
 
 @NgModule({

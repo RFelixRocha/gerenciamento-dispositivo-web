@@ -20,6 +20,16 @@ export class CategoryService {
 
   }
 
+  /**
+   * Add category
+   * */
+  addCategory(category: Category): Observable<Category>{
+    const url = `${this.categoryUrl}/create`;
+    return this.http.post<Category>(url,category,this.httpOptions)
+    tap((newCategory: Category) => this.log(`Nova categoria cadastrada, id ${newCategory.id}`)),
+      catchError(this.handleError<Category>('addCategory'))
+  }
+
   /**  Busca todas as categorias */
   getCategories(): Observable<Category[]> {
     const url = `${this.categoryUrl}/all`;

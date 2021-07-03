@@ -7,12 +7,16 @@ import { DeviceComponent } from './components/device/device.component';
 import { CategoryComponent } from './components/category/category.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { CreateCategoryComponent } from './components/create-category/create-category.component';
+import { CreateDeviceComponent } from './components/create-device/create-device.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DeviceComponent,
-    CategoryComponent
+    CategoryComponent,
+    CreateCategoryComponent,
+    CreateDeviceComponent
   ],
   imports: [
     BrowserModule,
