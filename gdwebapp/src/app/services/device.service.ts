@@ -23,17 +23,17 @@ export class DeviceService {
     const url = `${this.deviceUrl}/all`;
     return this.http.get<Device[]>(url)
       .pipe(
-        tap(_=> this.log('fetched device')),
+        tap(() => this.log('fetched device')),
         catchError(this.handleError<Device[]>('getDevices', []))
       );
   }
 
   deleteDevice(id: number): Observable<Device> {
     const url = `${this.deviceUrl}/delete/${id}`;
-    return this.http.delete<Device[]>(url,this.httpOptions)
+    return this.http.delete<Device>(url,this.httpOptions)
       .pipe(
-        tap(_=> this.log(`delete device id ${id}`)),
-        catchError(this.handleError<any>('deleteDevice' ))
+        tap(() => this.log(`Dispositivo com id ${id} deletado`)),
+        catchError(this.handleError<Device>('deleteDevice' ))
       );
   }
 
