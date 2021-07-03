@@ -15,7 +15,7 @@
     <tbody>
     <tr *ngFor="let category of categories">
       <td>{{ category.name }}</td>
-      <td><a class="btn btn-danger" href="#" role="button">Deletar</a></td>
+      <td><a class="btn btn-danger" (click)="delete(category)" role="button">Deletar</a></td>
     </tr>
     </tbody>
   </table>

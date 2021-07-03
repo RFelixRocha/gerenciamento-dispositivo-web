@@ -25,8 +25,20 @@ export class CategoryService {
     const url = `${this.categoryUrl}/all`;
     return this.http.get<Category[]>(url)
       .pipe(
-        tap(_=> this.log('fetched category')),
+        tap(() => this.log('fetched category')),
         catchError(this.handleError<Category[]>('getCategories', []))
+      );
+  }
+
+  /**
+   * Deleta uma categoria
+   * **/
+  deleteCategory(id: number): Observable<Category> {
+    const url = `${this.categoryUrl}/delete/${id}`;
+    return this.http.delete<Category>(url,this.httpOptions)
+      .pipe(
+        tap(() => this.log(`Categoria com id ${id} deletada`)),
+        catchError(this.handleError<Category>('deleteCategory' ))
       );
   }
 

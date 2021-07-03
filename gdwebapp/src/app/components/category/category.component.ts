@@ -22,4 +22,9 @@ export class CategoryComponent implements OnInit {
       this.categoryService.getCategories().subscribe(categories => this.categories = categories)
   }
 
+  delete(category: Category): void {
+    this.categories = this.categories.filter(filter => filter !== category);
+    this.categoryService.deleteCategory(category.id).subscribe();
+  }
+
 }
