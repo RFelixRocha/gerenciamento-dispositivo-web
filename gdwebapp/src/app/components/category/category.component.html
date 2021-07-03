@@ -9,13 +9,13 @@
     <thead>
     <tr>
       <th scope="col">Nome</th>
-      <th scope="col">Ações</th>
+      <th scope="col" style="width: 10%">Ações</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>Smart Phone</td>
-      <td><a class="btn btn-primary" href="#" role="button">Link</a></td>
+    <tr *ngFor="let category of categories">
+      <td>{{ category.name }}</td>
+      <td><a class="btn btn-danger" href="#" role="button">Deletar</a></td>
     </tr>
     </tbody>
   </table>
