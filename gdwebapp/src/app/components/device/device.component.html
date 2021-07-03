@@ -6,7 +6,7 @@
 </nav>
 <div class="row g-3">
   <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end">
-    <a class="btn btn-info" routerLink="/devices/add" role="button"><i class="fas fa-trash"></i>Novo Dispositivo</a>
+    <a class="btn btn-primary" routerLink="/devices/add" role="button"><i class="fa fa-plus"></i>&nbsp;Novo Dispositivo</a>
   </div>
 
   <div class="col-12">
@@ -25,7 +25,7 @@
           <td>{{ device.partNumber }}</td>
           <td>{{ device.category.name }}</td>
           <td>{{ device.color }}</td>
-          <td class="text-center"><a class="btn btn-danger" (click)="delete(device)" role="button"><i class="fas fa-trash"></i>Deletar</a></td>
+          <td class="text-center"><a class="btn btn-danger" (click)="delete(device)" role="button"><i class="fa fa-trash"></i>&nbsp;Deletar</a></td>
         </tr>
         </tbody>
       </table>

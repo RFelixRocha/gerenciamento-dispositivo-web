@@ -7,7 +7,7 @@
 
   <div class="row g-3">
     <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end">
-      <a class="btn btn-info" routerLink="/categories/add" role="button"><i class="fas fa-trash"></i>Nova Categoria</a>
+      <a class="btn btn-primary" routerLink="/categories/add" role="button"><i class="fa fa-plus"></i>&nbsp;Nova categoria</a>
     </div>
     <div class="col-12">
       <div class="table-responsive">
@@ -21,7 +21,7 @@
         <tbody>
         <tr *ngFor="let category of categories">
           <td>{{ category.name }}</td>
-          <td class="text-center"><a class="btn btn-danger" (click)="delete(category)" role="button">Deletar</a></td>
+          <td class="text-center"><a class="btn btn-danger" (click)="delete(category)" role="button"><i class="fa fa-trash"></i>&nbsp;Deletar</a></td>
         </tr>
         </tbody>
       </table>
