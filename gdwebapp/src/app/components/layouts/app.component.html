@@ -9,19 +9,16 @@
   }
 
   footer {
+    bottom: 0;
+    color: #58666e;
+    left: 0px;
+    padding: 20px 30px;
     position: absolute;
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-    bottom: 10px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-    color: #333333;
-    text-decoration: none;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    right: 0;
+    background: #ffffff;
   }
 
 </style>
@@ -46,10 +43,8 @@
 <div class="container" role="main">
   <router-outlet></router-outlet>
   <!-- Footer -->
-  <footer>
-      <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
-        2021
-      </a>
+  <footer class="text-center" style="max-width: 100%">
+    2021
   </footer>
 
 </div>
