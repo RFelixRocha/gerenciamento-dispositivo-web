@@ -14,16 +14,16 @@
       <table class="table">
         <thead>
         <tr>
+          <th scope="col">Número de série</th>
           <th scope="col">Categoria</th>
           <th scope="col">Cor</th>
-          <th scope="col">Número de série</th>
           <th scope="col" class="text-center" style="width: 10%">Ações</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let device of devices">
-          <td>teste</td>
-          <td>{{ device.partNumber}}</td>
+          <td>{{ device.partNumber }}</td>
+          <td>{{ device.category.name }}</td>
           <td>{{ device.color }}</td>
           <td class="text-center"><a class="btn btn-danger" (click)="delete(device)" role="button"><i class="fas fa-trash"></i>Deletar</a></td>
         </tr>

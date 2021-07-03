@@ -18,6 +18,7 @@ export class DeviceComponent implements OnInit {
   }
   getDevices(): void {
     this.deviceService.getDevices().subscribe(devices => {
+      console.log(devices)
       this.devices = devices
     })
   }
