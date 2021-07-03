@@ -4,23 +4,32 @@
     <li class="breadcrumb-item active" aria-current="page">dispositivos</li>
   </ol>
 </nav>
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">Categoria</th>
-      <th scope="col">Cor</th>
-      <th scope="col">Número de série</th>
-      <th scope="col" style="width: 10%">Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let device of devices">
-      <td>teste</td>
-      <td>{{ device.partNumber}}</td>
-      <td>{{ device.color }}</td>
-      <td><a class="btn btn-danger" (click)="delete(device)" role="button"><i class="fas fa-trash"></i>Deletar</a></td>
-    </tr>
-    </tbody>
-  </table>
+<div class="row g-3">
+  <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end">
+    <a class="btn btn-info" routerLink="/devices/add" role="button"><i class="fas fa-trash"></i>Novo Dispositivo</a>
+  </div>
+
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Categoria</th>
+          <th scope="col">Cor</th>
+          <th scope="col">Número de série</th>
+          <th scope="col" class="text-center" style="width: 10%">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let device of devices">
+          <td>teste</td>
+          <td>{{ device.partNumber}}</td>
+          <td>{{ device.color }}</td>
+          <td class="text-center"><a class="btn btn-danger" (click)="delete(device)" role="button"><i class="fas fa-trash"></i>Deletar</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+

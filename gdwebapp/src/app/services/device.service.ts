@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { catchError, map, tap } from "rxjs/operators";
 import { Device } from "../interfaces/device";
+import {Category} from "../interfaces/category";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,16 @@ export class DeviceService {
   }
 
   constructor(private http: HttpClient) { }
+
+  /**
+   * Add device
+   * */
+  addDevice(device: Device): Observable<Device>{
+    const url = `${this.deviceUrl}/create`;
+    return this.http.post<Device>(url,device,this.httpOptions)
+    tap((newCategory: Device) => this.log(`Novo dispositivo cadastrado, id ${newCategory.id}`)),
+      catchError(this.handleError<Device>('addDevice'))
+  }
 
   /**  Busca todos os dispositivos */
   getDevices(): Observable<Device[]> {
