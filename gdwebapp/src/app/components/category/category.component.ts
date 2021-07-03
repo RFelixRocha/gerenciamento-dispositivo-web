@@ -52,11 +52,11 @@ export class CategoryComponent implements OnInit {
 
       } else if (result.dismiss === Swal.DismissReason.cancel) {
 
-        Swal.fire(
-          'Atenção',
-          'Você desistiu de excluir a categoria',
-          'info'
-        )
+        // Swal.fire(
+        //   'Atenção',
+        //   'Você desistiu de excluir a categoria',
+        //   'info'
+        // )
 
       }
     })

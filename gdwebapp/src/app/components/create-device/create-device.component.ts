@@ -33,9 +33,28 @@ export class CreateDeviceComponent implements OnInit {
 
   addDevice(): void{
 
+    let expressaoLetras = /[^a-zA-Z]/g;
+
     this.device.color = this.device.color.trim();
     this.device.partNumber = this.device.partNumber;
     this.device.category = this.device.category;
+
+    if (this.device.partNumber === '' || parseInt(this.device.partNumber) < 0)
+    {
+      this.alertService.info('Atenção!',`O campo número de série é um número inteiro positivo.`)
+
+      return;
+    }
+
+    if (this.device.color.length > 16){
+      this.alertService.info('Atenção!',`O campo Cor não pode ter mais de 16 caracteres.`)
+      return
+    }
+
+    if(this.device.color.match(expressaoLetras)){
+      this.alertService.info('Atenção!',`O campo Cor só aceita letras.`)
+      return;
+    }
 
     this.deviceService.addDevice(this.device).subscribe(newDevice => {
       this.alertService.success('Sucesso!',`Dispositivo ${newDevice.partNumber} cadastrado com sucesso.`)

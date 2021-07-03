@@ -8,7 +8,18 @@
 <div class="row gy-2 gx-3 align-items-center">
   <div class="col-12">
     <label for="name" class="form-label">Nome</label>
-    <input [(ngModel)]="category.name" type="text" class="form-control" id="name">
+    <input id="name" name="name" required minlength="1"  maxlength="128" [(ngModel)]="category.name" type="text" class="form-control" #name="ngModel">
+    <div *ngIf="name.invalid" class="">
+      <div *ngIf="name.errors?.required" class="valid-feedback">
+        O nome é obrigatório.
+      </div>
+      <div *ngIf="name.errors?.minlength" class="valid-feedback">
+        O nome deve ter pelo menos 1 caracteres.
+      </div>
+      <div *ngIf="name.errors?.maxlength" class="valid-feedback">
+        O campo Nome não pode ter mais de 128 caracteres.
+      </div>
+    </div>
   </div>
   <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end mt-4">
     <button type="button" (click)="addCategory()" class="btn btn-primary">Cadastrar</button>

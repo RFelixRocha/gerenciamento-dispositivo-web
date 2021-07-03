@@ -10,17 +10,35 @@
 
   <div class="col-4">
     <label for="partNumber" class="form-label">Número de série</label>
-    <input [(ngModel)]="device.partNumber" type="number" class="form-control" id="partNumber">
+    <input [(ngModel)]="device.partNumber" type="number" class="form-control" id="partNumber" name="partNumber" required #partNumber="ngModel">
+    <div *ngIf="partNumber.invalid" class="">
+      <div *ngIf="partNumber.errors?.required" class="valid-feedback">
+        O campo número de série é obrigatório.
+      </div>
+    </div>
   </div>
   <div class="col-4">
     <label for="color" class="form-label">Cor</label>
-    <input [(ngModel)]="device.color" type="text" class="form-control" id="color">
+    <input  id="color" name="color" required maxlength="16" #color="ngModel" [(ngModel)]="device.color" type="text" class="form-control">
+    <div *ngIf="color.invalid" class="">
+      <div *ngIf="color.errors?.required" class="valid-feedback">
+        O campo cor é obrigatório.
+      </div>
+      <div *ngIf="color.errors?.maxlength" class="valid-feedback">
+        O campo cor não pode ter mais de 16 caracteres.
+      </div>
+    </div>
   </div>
   <div class="col-4">
     <label for="categoryId" class="form-label">Categorias</label>
-    <select  [(ngModel)]="device.category" id="categoryId" class="form-select">
+    <select  [(ngModel)]="device.category" id="categoryId" class="form-select" name="categoryId" required #categoryId="ngModel">
       <option *ngFor="let category of categories" value="{{ category.id }}">{{ category.name }}</option>
     </select>
+    <div *ngIf="categoryId.invalid" class="">
+      <div *ngIf="categoryId.errors?.required" class="valid-feedback">
+        O campo categoria é obrigatório.
+      </div>
+    </div>
   </div>
 
   <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end mt-4">

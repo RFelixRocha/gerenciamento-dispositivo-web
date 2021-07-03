@@ -18,7 +18,6 @@ export class DeviceComponent implements OnInit {
   }
   getDevices(): void {
     this.deviceService.getDevices().subscribe(devices => {
-      console.log(devices)
       this.devices = devices
     })
   }
@@ -50,11 +49,11 @@ export class DeviceComponent implements OnInit {
 
       } else if (result.dismiss === Swal.DismissReason.cancel) {
 
-        Swal.fire(
-          'Atenção',
-          'Você desistiu de excluir o dispositivo',
-          'info'
-        )
+        // Swal.fire(
+        //   'Atenção',
+        //   'Você desistiu de excluir o dispositivo',
+        //   'info'
+        // )
 
       }
     })

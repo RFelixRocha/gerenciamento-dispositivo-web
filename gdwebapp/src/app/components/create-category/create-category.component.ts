@@ -23,7 +23,13 @@ export class CreateCategoryComponent implements OnInit {
   }
 
   addCategory(): void{
+
     this.category.name = this.category.name.trim();
+
+    if (this.category.name.length > 128){
+      this.alertService.info('Atenção!',`O campo Nome não pode ter mais de 128 caracteres.`)
+      return
+    }
 
     this.categoryService.addCategory(this.category).subscribe(newCategory => {
       this.alertService.success('Sucesso!',`Categoria ${newCategory.name} cadastrada com sucesso.`)
