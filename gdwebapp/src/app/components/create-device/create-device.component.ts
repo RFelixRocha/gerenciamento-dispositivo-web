@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DeviceService } from "../../services/device.service";
 import { Device } from "../../interfaces/device";
 import { Router } from "@angular/router";
-import {CategoryService} from "../../services/category.service";
-import {Category} from "../../interfaces/category";
+import { CategoryService } from "../../services/category.service";
+import { Category } from "../../interfaces/category";
+import { AlertService } from "../../services/alert.service";
 
 @Component({
   selector: 'app-create-device',
@@ -20,7 +21,7 @@ export class CreateDeviceComponent implements OnInit {
   }
   categories: Category[] = []
 
-  constructor(private deviceService: DeviceService, private router: Router, private categoryService: CategoryService) { }
+  constructor(private deviceService: DeviceService, private categoryService: CategoryService, private alertService: AlertService, private router: Router) { }
 
   ngOnInit(): void {
      this.getCategories();
@@ -39,7 +40,8 @@ export class CreateDeviceComponent implements OnInit {
     if (!this.device.color || !this.device.partNumber || !this.device.category)
       return;
 
-    this.deviceService.addDevice(this.device).subscribe(newCategory => {
+    this.deviceService.addDevice(this.device).subscribe(newDevice => {
+      this.alertService.success('Sucesso!',`Dispositivo ${newDevice.partNumber} cadastrado com sucesso.`)
       this.clearForm()
       this.router.navigate(['/devices']);
     },error => console.log(error.error))
