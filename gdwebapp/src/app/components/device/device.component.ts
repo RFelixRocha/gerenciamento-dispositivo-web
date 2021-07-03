@@ -3,6 +3,8 @@ import { Device } from "../../interfaces/device";
 import { DeviceService } from "../../services/device.service";
 import { AlertService } from "../../services/alert.service";
 import Swal from "sweetalert2";
+import { CategoryService } from "../../services/category.service";
+import { Category } from "../../interfaces/category";
 
 @Component({
   selector: 'app-device',
@@ -11,10 +13,15 @@ import Swal from "sweetalert2";
 })
 export class DeviceComponent implements OnInit {
   devices: Device[] = []
-  constructor( private deviceService: DeviceService, private alertService: AlertService) { }
+  categories: Category[] = []
+  constructor( private deviceService: DeviceService, private categoryService: CategoryService, private alertService: AlertService) { }
 
   ngOnInit(): void {
-    this.getDevices()
+    this.getCategories();
+    this.getDevices();
+  }
+  getCategories(): void {
+    this.categoryService.getCategories().subscribe(categories => this.categories = categories)
   }
   getDevices(): void {
     this.deviceService.getDevices().subscribe(devices => {
@@ -47,15 +54,7 @@ export class DeviceComponent implements OnInit {
 
         },(httpError) => this.alertService.error('Error!',`${httpError.error.message}`));
 
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-
-        // Swal.fire(
-        //   'Atenção',
-        //   'Você desistiu de excluir o dispositivo',
-        //   'info'
-        // )
-
-      }
+      } else if (result.dismiss === Swal.DismissReason.cancel) {}
     })
 
   }

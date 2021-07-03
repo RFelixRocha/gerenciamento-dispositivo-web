@@ -6,10 +6,18 @@
 </nav>
 
   <div class="row g-3">
-    <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end">
+    <div *ngIf="categories.length > 0 else notCategory" class="col-12 d-grid gap-2 d-md-flex justify-content-md-end">
       <a class="btn btn-primary" routerLink="/categories/add" role="button"><i class="fa fa-plus"></i>&nbsp;Nova categoria</a>
     </div>
-    <div class="col-12">
+
+    <ng-template #notCategory>
+      <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end">
+        <a class="btn btn-primary" routerLink="/categories/add" role="button"><i class="fa fa-plus"></i>&nbsp;Nova categoria</a>
+      </div>
+    </ng-template>
+
+
+    <div *ngIf="categories.length > 0" class="col-12">
       <div class="table-responsive">
         <table class="table">
         <thead>
