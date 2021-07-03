@@ -10,14 +10,14 @@ exports.create = (req, res) => {
       });
       return;
     }
-  
+
     //Objeto com os parametros
     const device = {
       color: req.body.color,
       partNumber: req.body.partNumber,
       categoryId: req.body.category
     };
-  
+
     //Cadastro do dispositivo
     Device.create(device)
       .then(data => {
@@ -30,11 +30,11 @@ exports.create = (req, res) => {
         });
       });
   };
-  
+
   //Lista todos os dispositivos.
   exports.findAll = (req, res) => {
     Device.findAll({
-        include:[db.category]
+        include: db.category
        })
       .then(data => {
         res.status(200).send(data);
@@ -46,7 +46,7 @@ exports.create = (req, res) => {
         });
       });
   };
-  
+
   //Busca um dispositivo
   exports.findOne = (req, res) => {
 
@@ -54,7 +54,7 @@ exports.create = (req, res) => {
 
     Device.findAll({
       where:{ id:id },
-      include:[db.category]
+      include: db.category
      })
     .then(data => {
       res.status(200).send(data);
@@ -67,13 +67,13 @@ exports.create = (req, res) => {
     });
 
   };
-  
+
 
   // Deleta um dispositivo
   exports.delete = (req, res) => {
 
     const id = req.params.id;
-  
+
     Device.destroy({
       where: { id: id }
     })
