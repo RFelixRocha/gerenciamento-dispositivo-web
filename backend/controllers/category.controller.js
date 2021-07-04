@@ -1,5 +1,5 @@
 const db = require("../models/index");
-const Category = db.category;
+const CategoryController = db.category;
 
 //Cadastro de categoria
 exports.create = (req, res) => {
@@ -17,7 +17,7 @@ exports.create = (req, res) => {
     };
 
     //Cadastro da categoria
-    Category.create(category)
+    CategoryController.create(category)
       .then(data => {
         res.status(201).send(data);
       })
@@ -31,7 +31,7 @@ exports.create = (req, res) => {
 
   //Lista das categorias.
   exports.findAll = (req, res) => {
-    Category.findAll({
+    CategoryController.findAll({
         include:[]
        })
       .then(data => {
@@ -50,7 +50,7 @@ exports.create = (req, res) => {
 
     const id = req.params.id;
 
-    Category.findOne({
+    CategoryController.findOne({
         where:{id:id},
         include:[db.device]
     })
@@ -79,7 +79,7 @@ exports.create = (req, res) => {
 
     const id = req.params.id;
 
-    Category.destroy({
+    CategoryController.destroy({
       where: { id: id }
     })
       .then(num => {

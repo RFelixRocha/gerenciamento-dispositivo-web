@@ -1,5 +1,5 @@
 const db = require("../models/index");
-const Device = db.device;
+const DeviceController = db.device;
 
 //Cadastro de categoria
 exports.create = (req, res) => {
@@ -19,7 +19,7 @@ exports.create = (req, res) => {
     };
 
     //Cadastro do dispositivo
-    Device.create(device)
+    DeviceController.create(device)
       .then(data => {
         res.status(201).send(data);
       })
@@ -33,7 +33,7 @@ exports.create = (req, res) => {
 
   //Lista todos os dispositivos.
   exports.findAll = (req, res) => {
-    Device.findAll({
+    DeviceController.findAll({
         include: db.category
        })
       .then(data => {
@@ -52,7 +52,7 @@ exports.create = (req, res) => {
 
     const id = req.params.id;
 
-    Device.findAll({
+    DeviceController.findAll({
       where:{ id:id },
       include: db.category
      })
@@ -74,7 +74,7 @@ exports.create = (req, res) => {
 
     const id = req.params.id;
 
-    Device.destroy({
+    DeviceController.destroy({
       where: { id: id }
     })
       .then(num => {

@@ -16,10 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 
-const deviceRoutes = require("./routes/device");
+const deviceRoutes = require("./routes/device.routes");
 app.use("/api/v1/devices",deviceRoutes);
 
-const categoryRoutes = require("./routes/category");
+const categoryRoutes = require("./routes/category.routes");
 app.use("/api/v1/categories",categoryRoutes);
 
 db.sequelize.sync({ force: true }).then(() => {
