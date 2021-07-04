@@ -11,7 +11,7 @@
   <div class="col-4">
     <label for="partNumber" class="form-label">Número de série</label>
     <input [(ngModel)]="device.partNumber" type="number" class="form-control" id="partNumber" name="partNumber" required #partNumber="ngModel">
-    <div *ngIf="partNumber.invalid" class="">
+    <div *ngIf="partNumber.invalid && (partNumber.dirty || partNumber.touched)" class="">
       <div *ngIf="partNumber.errors?.required" class="valid-feedback">
         O campo número de série é obrigatório.
       </div>
@@ -20,7 +20,7 @@
   <div class="col-4">
     <label for="color" class="form-label">Cor</label>
     <input  id="color" name="color" required maxlength="16" #color="ngModel" [(ngModel)]="device.color" type="text" class="form-control">
-    <div *ngIf="color.invalid" class="">
+    <div *ngIf="color.invalid && (color.dirty || color.touched)" class="">
       <div *ngIf="color.errors?.required" class="valid-feedback">
         O campo cor é obrigatório.
       </div>
@@ -34,7 +34,7 @@
     <select  [(ngModel)]="device.category" id="categoryId" class="form-select" name="categoryId" required #categoryId="ngModel">
       <option *ngFor="let category of categories" value="{{ category.id }}">{{ category.name }}</option>
     </select>
-    <div *ngIf="categoryId.invalid" class="">
+    <div *ngIf="categoryId.invalid && (categoryId.dirty || categoryId.touched)" class="">
       <div *ngIf="categoryId.errors?.required" class="valid-feedback">
         O campo categoria é obrigatório.
       </div>
