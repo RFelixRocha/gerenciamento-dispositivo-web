@@ -11,7 +11,7 @@ import {Category} from "../interfaces/category";
 })
 export class DeviceService {
 
-  private deviceUrl = 'http://18.228.44.227:3000/api/v1/devices';
+  private deviceUrl = 'http://18.230.117.21:3000/api/v1/devices';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-type': 'application/json'})
