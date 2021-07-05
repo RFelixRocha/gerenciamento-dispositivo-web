@@ -4,7 +4,7 @@ O sistema mostra um CRUD feito usando Angular v12, Node v12.21.0 e MySql v8.0.20
 A parte do backend(feito em Nodejs) está rodando em uma instância do Amazon EC2 T2 Micro, e o frontend(Angular) está no Amazon S3 static bucket.
 
 ### Demo
-[Acessar](http://deploy-app-dev-pessoal.s3-website-us-east-1.amazonaws.com){:target="_blank"}
+[Acessar](http://deploy-app-dev-pessoal.s3-website-us-east-1.amazonaws.com/?target=_blank)
 
 ## Passos para a instalação do sistema em dev local
 
