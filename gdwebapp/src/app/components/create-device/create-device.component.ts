@@ -41,7 +41,7 @@ export class CreateDeviceComponent implements OnInit {
 
     if (this.device.partNumber === '' || parseInt(this.device.partNumber) < 0)
     {
-      this.alertService.info('Atenção!',`O campo número de série é um número inteiro positivo.`)
+      this.alertService.info('Atenção!',`O campo número da peça é um número inteiro positivo.`)
 
       return;
     }

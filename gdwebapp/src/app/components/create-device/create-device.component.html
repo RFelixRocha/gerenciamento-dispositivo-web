@@ -9,11 +9,11 @@
 <div class="row gy-2 gx-3 align-items-center">
 
   <div class="col-4">
-    <label for="partNumber" class="form-label">Número de série</label>
+    <label for="partNumber" class="form-label">Número da peça</label>
     <input [(ngModel)]="device.partNumber" type="number" class="form-control" id="partNumber" name="partNumber" required #partNumber="ngModel">
     <div *ngIf="partNumber.invalid && (partNumber.dirty || partNumber.touched)" class="">
       <div *ngIf="partNumber.errors?.required" class="valid-feedback">
-        O campo número de série é obrigatório.
+        O campo número da peça é obrigatório.
       </div>
     </div>
   </div>
