@@ -6,12 +6,14 @@ import { CategoryComponent } from "../components/category/category.component";
 import { CreateCategoryComponent } from "../components/create-category/create-category.component";
 import { CreateDeviceComponent } from "../components/create-device/create-device.component";
 import { CategoryDetailsComponent } from "../components/category-details/category-details.component";
-import {CategoryUpdateComponent} from "../components/category-update/category-update.component";
+import { CategoryUpdateComponent } from "../components/category-update/category-update.component";
+import { DeviceUpdateComponent } from "../components/device-update/device-update.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/devices', pathMatch: 'full' },
   { path: 'devices', component: DeviceComponent},
   { path: 'devices/add', component: CreateDeviceComponent},
+  { path: 'devices/update/:id', component: DeviceUpdateComponent},
   { path: 'categories', component: CategoryComponent },
   { path: 'categories/add', component: CreateCategoryComponent},
   { path: 'categories/details/:id', component: CategoryDetailsComponent},

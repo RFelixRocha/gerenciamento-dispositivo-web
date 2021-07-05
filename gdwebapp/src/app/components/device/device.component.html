@@ -22,7 +22,7 @@
           <th scope="col">Número da peça</th>
           <th scope="col">Categoria</th>
           <th scope="col">Cor</th>
-          <th scope="col" class="text-center" style="width: 10%">Ações</th>
+          <th scope="col" class="text-center" style="width: 20%">Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -30,7 +30,10 @@
           <td>{{ device.partNumber }}</td>
           <td>{{ device.category.name }}</td>
           <td>{{ device.color }}</td>
-          <td class="text-center"><a class="btn btn-danger" (click)="delete(device)" role="button"><i class="fa fa-trash"></i>&nbsp;Deletar</a></td>
+          <td class="text-center">
+            <a class="btn btn-primary" style="margin-right: 5px;" routerLink="/devices/update/{{device.id}}" role="button"><i class="fa fa-edit"></i>&nbsp;Alterar</a>
+            <a class="btn btn-danger" (click)="delete(device)" role="button"><i class="fa fa-trash"></i>&nbsp;Deletar</a>
+          </td>
         </tr>
         </tbody>
       </table>

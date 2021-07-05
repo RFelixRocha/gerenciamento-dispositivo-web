@@ -3,4 +3,5 @@ export interface Device {
   color: string;
   partNumber: any;
   category: any;
+  categoryId: any;
 }

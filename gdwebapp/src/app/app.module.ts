@@ -11,6 +11,7 @@ import { CreateCategoryComponent } from './components/create-category/create-cat
 import { CreateDeviceComponent } from './components/create-device/create-device.component';
 import { CategoryDetailsComponent } from './components/category-details/category-details.component';
 import { CategoryUpdateComponent } from './components/category-update/category-update.component';
+import { DeviceUpdateComponent } from './components/device-update/device-update.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CategoryUpdateComponent } from './components/category-update/category-u
     CreateCategoryComponent,
     CreateDeviceComponent,
     CategoryDetailsComponent,
-    CategoryUpdateComponent
+    CategoryUpdateComponent,
+    DeviceUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@ import {Category} from "../interfaces/category";
 })
 export class DeviceService {
 
-  private deviceUrl = 'http://18.230.117.21:3000/api/v1/devices';
+  private deviceUrl = 'http://54.224.41.42:3000/api/v1/devices';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-type': 'application/json'})
@@ -29,6 +29,17 @@ export class DeviceService {
       catchError(this.handleError<Device>('addDevice'))
   }
 
+  /** Update de dispositivo */
+  updateDevice(device: Device): Observable<any> {
+
+    const url = `${this.deviceUrl}/update/${device.id}`;
+
+    return this.http.put(url, device, this.httpOptions).pipe(
+      tap(_ => this.log('Dispositivo atualizado com sucesso')),
+      catchError(this.handleError<any>('updateDevice'))
+    );
+  }
+
   /**  Busca todos os dispositivos */
   getDevices(): Observable<Device[]> {
     const url = `${this.deviceUrl}/all`;
@@ -36,6 +47,18 @@ export class DeviceService {
       .pipe(
         tap(() => this.log('fetched device')),
         catchError(this.handleError<Device[]>('getDevices', []))
+      );
+  }
+
+  /**
+   * Busca uma categoria
+   * **/
+  searchDevice(id: number): Observable<Device> {
+    const url = `${this.deviceUrl}/search/${id}`;
+    return this.http.get<Device>(url)
+      .pipe(
+        tap(() => this.log(`fetched devices id ${id}`)),
+        catchError(this.handleError<Device>('searchDevice'))
       );
   }
 

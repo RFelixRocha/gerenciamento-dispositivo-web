@@ -17,7 +17,8 @@ export class CreateDeviceComponent implements OnInit {
     id: 0,
     color: '',
     partNumber: '',
-    category: ''
+    category: '',
+    categoryId: ''
   }
   categories: Category[] = []
 
@@ -72,7 +73,8 @@ export class CreateDeviceComponent implements OnInit {
       id: 0,
       color: '',
       partNumber: 0,
-      category: ''
+      category: '',
+      categoryId: ''
     }
   }
 
