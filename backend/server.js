@@ -1,14 +1,9 @@
 const express = require("express");
 const app  = express();
-const db   = require("./models");
+
 const cors = require("cors");
-const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-
-dotenv.config();
 app.use(cors());
-
-const PORT = process.env.PORT || 3001;
 
 /** parse requests of content-type - application/json */
 app.use(bodyParser.json());
@@ -29,10 +24,4 @@ app.use("/api/v1/devices",deviceRoutes);
 const categoryRoutes = require("./routes/category.routes");
 app.use("/api/v1/categories",categoryRoutes);
 
-db.sequelize.sync({ force: true }).then(() => {
-
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`);
-  });
-
-});
+module.exports = app;
