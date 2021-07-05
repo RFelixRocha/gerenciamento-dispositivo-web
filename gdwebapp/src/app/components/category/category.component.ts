@@ -50,15 +50,7 @@ export class CategoryComponent implements OnInit {
 
         },(httpError) => this.alertService.error('Error!',`${httpError.error.message}`));
 
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-
-        // Swal.fire(
-        //   'Atenção',
-        //   'Você desistiu de excluir a categoria',
-        //   'info'
-        // )
-
-      }
+      } else if (result.dismiss === Swal.DismissReason.cancel) {}
     })
 
   }

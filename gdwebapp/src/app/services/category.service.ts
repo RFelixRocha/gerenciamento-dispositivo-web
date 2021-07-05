@@ -10,7 +10,7 @@ import { Category } from "../interfaces/category";
 })
 export class CategoryService {
 
-  private categoryUrl = 'http://18.230.117.21:3000/api/v1/categories';
+  private categoryUrl = 'http://localhost:3000/api/v1/categories';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-type': 'application/json'})
@@ -28,6 +28,16 @@ export class CategoryService {
     return this.http.post<Category>(url,category,this.httpOptions)
     tap((newCategory: Category) => this.log(`Nova categoria cadastrada, id ${newCategory.id}`)),
       catchError(this.handleError<Category>('addCategory'))
+  }
+ /** Update da categoria */
+  updateCategory(category: Category): Observable<any> {
+
+   const url = `${this.categoryUrl}/update/${category.id}`;
+
+    return this.http.put(url, category, this.httpOptions).pipe(
+      tap(_ => this.log('Categoria atualizada com sucesso')),
+      catchError(this.handleError<any>('updateCategory'))
+    );
   }
 
   /**  Busca todas as categorias */

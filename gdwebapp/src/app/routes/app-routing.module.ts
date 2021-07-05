@@ -6,6 +6,7 @@ import { CategoryComponent } from "../components/category/category.component";
 import { CreateCategoryComponent } from "../components/create-category/create-category.component";
 import { CreateDeviceComponent } from "../components/create-device/create-device.component";
 import { CategoryDetailsComponent } from "../components/category-details/category-details.component";
+import {CategoryUpdateComponent} from "../components/category-update/category-update.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/devices', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'devices/add', component: CreateDeviceComponent},
   { path: 'categories', component: CategoryComponent },
   { path: 'categories/add', component: CreateCategoryComponent},
-  { path: 'categories/details/:id', component: CategoryDetailsComponent}
+  { path: 'categories/details/:id', component: CategoryDetailsComponent},
+  { path: 'categories/update/:id', component: CategoryUpdateComponent}
 ];
 
 @NgModule({

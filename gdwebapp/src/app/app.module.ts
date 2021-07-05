@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import { CreateCategoryComponent } from './components/create-category/create-category.component';
 import { CreateDeviceComponent } from './components/create-device/create-device.component';
 import { CategoryDetailsComponent } from './components/category-details/category-details.component';
+import { CategoryUpdateComponent } from './components/category-update/category-update.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CategoryDetailsComponent } from './components/category-details/category
     CategoryComponent,
     CreateCategoryComponent,
     CreateDeviceComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    CategoryUpdateComponent
   ],
   imports: [
     BrowserModule,

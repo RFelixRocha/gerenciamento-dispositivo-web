@@ -12,6 +12,7 @@
     <input id="name" name="name" disabled [(ngModel)]="category.name" type="text" class="form-control" #name="ngModel">
   </div>
   <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+    <a class="btn btn-primary" style="margin-right: 5px;" routerLink="/categories/update/{{category.id}}" role="button"><i class="fa fa-edit"></i>&nbsp;Alterar</a>
     <a class="btn btn-danger" (click)="delete(category)" role="button"><i class="fa fa-trash"></i>&nbsp;Deletar</a>
   </div>
   <div *ngIf="category.devices.length > 0" class="col-12">
