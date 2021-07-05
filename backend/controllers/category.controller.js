@@ -1,8 +1,8 @@
-const db = require("../models/index");
-const CategoryController = db.category;
+    const db = require("../models/index");
+    const CategoryController = db.category;
 
-//Cadastro de categoria
-exports.create = (req, res) => {
+    //Cadastro de categoria
+    exports.create = (req, res) => {
     // Validate request
     if (!req.body.name) {
       res.status(422).send({
@@ -27,10 +27,39 @@ exports.create = (req, res) => {
             err.message || "Erro ao cadastrar a categoria."
         });
       });
-  };
+    };
 
-  //Lista das categorias.
-  exports.findAll = (req, res) => {
+    //update da categoria
+    exports.update = (req, res) => {
+
+    const id = req.params.id;
+
+    CategoryController.update(req.body, {
+        where: { id: id }
+    })
+        .then(result => {
+
+            if (result == 1) {
+
+                res.status(200).send({
+                    message: "Categoria atualizada com sucesso."
+                });
+
+            } else {
+                res.status(404).send({
+                    message: "Categoria não encontrada"
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Erro ao atualizar a categoria"
+            });
+        });
+    };
+
+    //Lista das categorias.
+    exports.findAll = (req, res) => {
     CategoryController.findAll({
         include:[]
        })
@@ -43,10 +72,10 @@ exports.create = (req, res) => {
             err.message || "Erro ao listar as categorias."
         });
       });
-  };
+    };
 
-  //Buscando uma categoria
-  exports.findOne = (req, res) => {
+    //Buscando uma categoria
+    exports.findOne = (req, res) => {
 
     const id = req.params.id;
 
@@ -71,20 +100,20 @@ exports.create = (req, res) => {
         });
       });
 
-  };
+    };
 
 
-  // Deleta uma categoria
-  exports.delete = (req, res) => {
+    // Deleta uma categoria
+    exports.delete = (req, res) => {
 
     const id = req.params.id;
 
     CategoryController.destroy({
       where: { id: id }
     })
-      .then(num => {
+      .then(result => {
 
-        if (num == 1) {
+        if (result == 1) {
 
           res.status(200).send({
             message: "Categoria deletada com sucesso!"
@@ -104,4 +133,4 @@ exports.create = (req, res) => {
           message: "Não foi possível excluir a categoria com o  id=" + id
         });
       });
-  };
+    };

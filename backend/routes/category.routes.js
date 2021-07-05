@@ -4,6 +4,8 @@ const categoryRoutes = require("../controllers/category.controller");
 
 router.post("/create", categoryRoutes.create);
 
+router.put("/update/:id", categoryRoutes.update);
+
 router.get("/all", categoryRoutes.findAll);
 
 router.get("/search/:id", categoryRoutes.findOne);

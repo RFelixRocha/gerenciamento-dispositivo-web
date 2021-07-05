@@ -31,6 +31,35 @@ exports.create = (req, res) => {
       });
   };
 
+//update do dispositivo
+exports.update = (req, res) => {
+
+    const id = req.params.id;
+
+    DeviceController.update(req.body, {
+        where: { id: id }
+    })
+        .then(result => {
+
+            if (result == 1) {
+
+                res.status(200).send({
+                    message: "Dispositivo atualizado com sucesso."
+                });
+
+            } else {
+                res.status(404).send({
+                    message: "Dispositivo não encontrado"
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Erro ao atualizar o dispositivo"
+            });
+        });
+};
+
   //Lista todos os dispositivos.
   exports.findAll = (req, res) => {
     DeviceController.findAll({

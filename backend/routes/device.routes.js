@@ -4,6 +4,8 @@ const deviceRoutes = require("../controllers/device.controller");
 
 router.post("/create", deviceRoutes.create);
 
+router.put("/update/:id", deviceRoutes.update);
+
 router.get("/all", deviceRoutes.findAll);
 
 router.get("/search/:id", deviceRoutes.findOne);
