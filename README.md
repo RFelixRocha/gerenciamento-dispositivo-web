@@ -15,9 +15,17 @@ A parte do backend(feito em Nodejs) está rodando em uma instância do Amazon EC
 - Executar o script_db.sql em um ambiente de sua preferência
 - cd ..
 - Configura o arquivo .env com o comando no terminal cp .env.example .env. Definir a porta do serviço e o modo de execução
-- Executar o comando npm start server.js
+- Executar o comando npm start index.js
 - cd .. && cd gdwebapp
 - npm install
 - ng serve --open (caso tenha o Angula CLI toll instalado), caso não tenha execute o comando npm install -g @angular/cli 
+
+## Passos para a execução de testes
+- Os arquivos de implementação dos testes estão dentro do dir backend\tests\unit
+- Executar cd .. && cd backend
+- cd config
+- É necessário fazer a configuração de acesso ao banco de dados de teste no arquivo config.json TAG "test"
+- executar o script_test_db para criar uma base de dados para executar os testes
+- npm test
 
 ## Até a próxima
