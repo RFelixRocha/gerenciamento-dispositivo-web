@@ -67,6 +67,8 @@ export class DeviceDetailsComponent implements OnInit {
             'success'
           )
 
+          this.router.navigate(['/devices']);
+          
         },(httpError) => this.alertService.error('Error!',`${httpError.error.message}`));
 
       } else if (result.dismiss === Swal.DismissReason.cancel) {}
