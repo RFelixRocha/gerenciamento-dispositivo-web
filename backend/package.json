@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest",
-    "start": "cross-env NODE_ENV=development node index.js",
+    "start": "cross-env NODE_ENV=production node index.js",
     "dev": "nodemon index.js"
   },
   "author": "Raimundo Felix da Rocha",

@@ -88,7 +88,7 @@ export class DeviceUpdateComponent implements OnInit {
       this.deviceService.updateDevice(this.device)
         .subscribe((updateDevice) => {
           this.alertService.success('Sucesso!',`Dispositivo atualizado com sucesso.`)
-          this.router.navigate([`/devices`]);
+          this.router.navigate([`/devices/details/${this.device.id}`]);
         },(httpError) => {
           this.alertService.error('Error!',`${httpError.error.message}`);
         });

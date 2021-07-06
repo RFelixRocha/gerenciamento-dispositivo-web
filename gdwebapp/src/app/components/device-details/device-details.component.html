@@ -1,0 +1,24 @@
+<nav style="margin-top:10px;--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#" style="text-decoration: none">Home</a></li>
+    <li class="breadcrumb-item"><a routerLink="/devices" routerLinkActive="active" style="text-decoration: none">dispositivos</a></li>
+    <li class="breadcrumb-item active" aria-current="page">detalhes</li>
+  </ol>
+</nav>
+
+<div class="row align-items-center">
+  <div class="col-xl-6">
+    <div class="text-start">
+      <p class="text-muted"><strong>Número da peça:</strong> <span class="ms-2">{{ device.partNumber }}</span></p>
+
+      <p class="text-muted"><strong>Categoria :</strong><span class="ms-2">{{ device.category.name }}</span></p>
+
+      <p class="text-muted"><strong>Cor :</strong> <span class="ms-2">{{ device.color }}</span></p>
+
+    </div>
+  </div>
+  <div class="col-6 d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+    <a class="btn btn-primary" style="margin-right: 5px;" routerLink="/devices/update/{{device.id}}" role="button"><i class="fa fa-edit"></i>&nbsp;Alterar</a>
+    <a class="btn btn-danger" (click)="delete(device)" role="button"><i class="fa fa-trash"></i>&nbsp;Deletar</a>
+  </div>
+</div>

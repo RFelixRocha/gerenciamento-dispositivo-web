@@ -12,6 +12,7 @@ import { CreateDeviceComponent } from './components/create-device/create-device.
 import { CategoryDetailsComponent } from './components/category-details/category-details.component';
 import { CategoryUpdateComponent } from './components/category-update/category-update.component';
 import { DeviceUpdateComponent } from './components/device-update/device-update.component';
+import { DeviceDetailsComponent } from './components/device-details/device-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DeviceUpdateComponent } from './components/device-update/device-update.
     CreateDeviceComponent,
     CategoryDetailsComponent,
     CategoryUpdateComponent,
-    DeviceUpdateComponent
+    DeviceUpdateComponent,
+    DeviceDetailsComponent
   ],
   imports: [
     BrowserModule,
